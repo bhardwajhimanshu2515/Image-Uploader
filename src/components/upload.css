@@ -1,0 +1,12 @@
+#upload{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+input{
+    margin-bottom: 80px;
+}
+image{
+    margin-top: 50px;
+}
