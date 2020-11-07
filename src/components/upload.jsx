@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import "./upload.css";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Upload(){
     const [loading,setLoading]=useState(false);
     const [image,setImage]=useState("");
@@ -20,8 +21,15 @@ function Upload(){
         const file=await res.json()
 
         console.log(file);
+        
         setImage(file.secure_url);
         setLoading(false);
+        if(file.secure_url !==""){
+            toast.success("Image Uploaded");
+        }
+        else{
+            toast.error("Image Not Uploaded")
+        }
     }
     return(
         <div id="upload">
@@ -35,6 +43,7 @@ function Upload(){
                     <img src={image} style={{width:'300px'}}/>
                 )
             }
+            <ToastContainer/>
         </div>
     );
 }
